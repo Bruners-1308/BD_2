@@ -1,0 +1,19 @@
+/*comentário do banco*/
+
+create database bdAula1;
+
+use bdAula1;
+
+show tables;
+
+create table tbAluno(
+idAluno int primary key auto_increment
+,nomeAluno varchar(40)
+,dtNascAluno date
+
+);
+
+insert into tbAluno value(null,'Bruna Miranda','1990-07-20');
+insert into tbAluno value(null,'Bruna','1990-07-21');
+
+select * from tbAluno;
