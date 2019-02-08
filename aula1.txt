@@ -17,3 +17,25 @@ insert into tbAluno value(null,'Bruna Miranda','1990-07-20');
 insert into tbAluno value(null,'Bruna','1990-07-21');
 
 select * from tbAluno;
+
+
+create database bdEscola;
+
+use bdEscola;
+
+create table tbProfessor (
+idProfessor int primary key auto_increment
+,nomeProfessor varchar (40)
+,dtNascProfessor date
+,emailProfessor varchar (40)
+,foneProfessor varchar (10)
+
+);
+
+insert into tbProfessor value (null,'Maria','1990-05-01','maria@gmail.com','9999-9999');
+insert into tbProfessor value (null,'João','1985-05-01','joao@gmail.com','9995-9999');
+insert into tbProfessor value (null,'José','1991-05-01','jose@gmail.com','9999-9997');
+insert into tbProfessor value (null,'Joana','1990-05-08','joana@gmail.com','8999-9999');
+insert into tbProfessor value (null,'Raimunda','1980-05-01','rmunda@gmail.com','9299-9999');
+
+select * from tbProfessor;
