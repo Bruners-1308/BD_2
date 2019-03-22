@@ -1,0 +1,4 @@
+https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html
+
+
+https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html
