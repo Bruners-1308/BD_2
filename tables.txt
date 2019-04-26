@@ -1,0 +1,51 @@
+create database bdLoja;
+use	bdLoja;
+
+create table tbEstado (
+idEstado int primary key auto_increment
+,UF varchar (2)
+);
+
+create table tbCliente (
+idCliente int primary key auto_increment
+,nomeCliente varchar (40)
+,cpfCliente varchar (40)
+,idEstado int
+,foreign key (idEstado) references tbEstado (idEstado)
+);
+
+create table tbCategoria (
+idCategoria int primary key auto_increment
+,Categoria varchar (40)
+);
+
+create table tbProduto (
+idProduto int primary key auto_increment
+,idCategoria int
+,foreign key (idCategoria) references tbCategoria (idCategoria)
+,Produto varchar (40)
+,Valor varchar (40)
+);
+
+create table tbPedido (
+idPedido int primary key auto_increment
+,dataPedido date
+,idCliente int
+,foreign key (idCliente) references tbCliente (idCliente)
+);
+
+create table tbItemPedido (
+idItemPedido int primary key auto_increment
+,idPedido int
+,foreign key (idPedido) references tbPedido (idPedido)
+,idProduto int
+,foreign key (idProduto) references tbProduto (idProduto)
+,qtdProduto int
+);
+
+create table tbFoneCli(
+	idFoneCli int primary key auto_increment
+    ,idCliente int
+    ,numFone varchar (20)
+    ,foreign key (idCliente) references tbCliente (idCliente)
+);

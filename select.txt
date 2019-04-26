@@ -1,0 +1,8 @@
+create table tbFoneCli(
+	idFoneCli int primary key auto_increment
+    ,idCliente int
+    ,numFone varchar (20)
+    ,foreign key (idCliente) references tbCliente (idCliente)
+);
+
+

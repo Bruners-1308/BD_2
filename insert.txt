@@ -1,0 +1,35 @@
+insert into tbEstado values (null, 'SP');
+insert into tbEstado values (null, 'RJ');
+insert into tbEstado values (null, 'MG');
+insert into tbEstado values (null, 'ES');
+
+insert into tbCliente values (null, 'Bruna', '306.968.778-96', 3);
+insert into tbCliente values (null, 'Maria', '464.365.576-91', 3);
+insert into tbCliente values (null, 'Quintino', '047.043.988-96', 3);
+insert into tbCliente values (null, 'Livia', '999.999.013-25', 1);
+
+insert into tbCategoria values (null, 'Camisetas');
+insert into tbCategoria values (null, 'Calças');
+insert into tbCategoria values (null, 'Vestidos');
+insert into tbCategoria values (null, 'Calçados');
+
+insert into tbProduto values (null, 1, 'Masculinas', '30,00');
+insert into tbProduto values (null, 2, 'Jeans', '50,00');
+insert into tbProduto values (null, 3, 'Verão','35,00');
+insert into tbProduto values (null, 4, 'Infantil', '55,00');
+
+insert into tbPedido values (null, '2019-04-20', 1);
+insert into tbPedido values (null, '2019-04-20', 2);
+insert into tbPedido values (null, '2019-04-20', 3);
+insert into tbPedido values (null, '2019-04-20', 4);
+
+insert into tbItemPedido values (null, 1, 1, '3');
+insert into tbItemPedido values (null, 2, 2, '1');
+insert into tbItemPedido values (null, 3, 3, '2');
+insert into tbItemPedido values (null, 4, 4, '1');
+
+insert into tbFoneCli values (null, 1, '99166-7628');
+insert into tbFoneCli values (null, 2, '96513-1782');
+insert into tbFoneCli values (null, 3, '2695-4550');
+insert into tbFoneCli values (null, 1, '98051-0905');
+
