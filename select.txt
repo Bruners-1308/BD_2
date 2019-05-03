@@ -1,8 +1,30 @@
-create table tbFoneCli(
-	idFoneCli int primary key auto_increment
-    ,idCliente int
-    ,numFone varchar (20)
-    ,foreign key (idCliente) references tbCliente (idCliente)
-);
+select * from tbCLiente where idEstado in (1,2); 
+select length(nomeCliente), nomeCliente from tbCliente;
+select ASCII('@');
+select lower(nomeCliente) from tbCliente;
+select upper(nomeCliente) from tbCliente;
+select repeat('Bruna', 5);
+select space(12);
+select '	Bruna	';
+select ltrim('	Bruna	');
+select rtrim('	Bruna	');
+select reverse(nomeCliente) from tbCliente;
+select left('abcde', 2);
+select right('abcde', 2);
+select substring('abcdefg', 1,3);
+select md5('123456');
 
-
+lenght - retorna a quantidade de caracteres
+ASCII - retorna o código da tabela de caracteres
+lower - converte a string pra letra minuscula
+upper - converte a string pra letra maiuscula
+repeat - retorna a string a quantidade de vezes solicitada
+space - gera espaços
+select '	bruna	' - retorna a string com a quandidade de espaços
+select ltrim - remove espaçamento a esquerda
+select rtrim - remove espaçamento a direita
+select trim - remove o espaçamento direita e esquerda
+reverse - mostra a string ao contrario
+left - pega parte da string 
+right - pega parte da string 
+substring
