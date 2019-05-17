@@ -1,0 +1,47 @@
+create database bdVenda;
+use bdVenda;
+
+create table tbPereciveis(
+id int primary key auto_increment
+,Produto varchar(40)
+,valor decimal(5,2)
+,qtd int
+);
+
+ select * from tbPereciveis;
+
+ 
+create table tbItemVendido(
+id int primary key auto_increment
+,ProdutoVendido varchar (50)
+,ValorVendido decimal (5,2)
+,qtdVendida int
+);
+
+insert into tbPereciveis values(null,'Arroz','14.00',50);
+insert into tbPereciveis values(null,'Feijão','6.00',40);
+insert into tbPereciveis values(null,'Macarrão','2.00',35);
+insert into tbPereciveis values(null,'Açucar','1.50',40);
+insert into tbPereciveis values(null,'Sal','5.00',25);
+
+insert into tbItemVendido values(null,'Arroz','11.00',20);
+insert into tbItemVendido values(null,'Feijão','4.00',30);
+insert into tbItemVendido values(null,'Macarrão','1.50',30);
+insert into tbItemVendido values(null,'Açucar','1.00',40);
+insert into tbItemVendido values(null,'Sal','3.00',15);
+
+
+select * from tbItemVendido; -- retona a qtd vendas
+SELECT ProdutoVendido,(qtdVendida*ValorVendido) FROM tbItemVendido where id in(1,2,3,4,5); -- soma total de cada prd vendido
+select ProdutoVendido,min(qtdVendida) from tbItemVendido; -- minimo vendido
+
+select tbProduto.produto,tbCategoria.Categoria from tbProduto
+inner join tbCategoria
+on tbProduto.idCategoria = tbCategoria.idCategoria; 
+
+
+select p.produto,c.Categoria from tbProduto p
+inner join tbCategoria c
+on p.idCategoria = c.idCategoria; 
+
+https://pt.stackoverflow.com/questions/138199/consultar-dados-em-duas-tabelas-e-somar-uma-das-colunas
