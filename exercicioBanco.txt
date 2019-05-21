@@ -32,16 +32,11 @@ insert into tbItemVendido values(null,'Sal','3.00',15);
 
 
 select * from tbItemVendido; -- retona a qtd vendas
-SELECT ProdutoVendido,(qtdVendida*ValorVendido) FROM tbItemVendido where id in(1,2,3,4,5); -- soma total de cada prd vendido
+SELECT ProdutoVendido,(qtdVendida*ValorVendido) FROM tbItemVendido where id in(1,2,3,4,5); -- soma total de prd vendido
 select ProdutoVendido,min(qtdVendida) from tbItemVendido; -- minimo vendido
 
-select tbProduto.produto,tbCategoria.Categoria from tbProduto
-inner join tbCategoria
-on tbProduto.idCategoria = tbCategoria.idCategoria; 
+select tbItemvendido.qtdVendida, tbPereciveis.qtd from tbItemvendido
+inner join tbPereciveis
+on tbItemvendido.qtdVendida = tbPereciveis.qtd; 
 
-
-select p.produto,c.Categoria from tbProduto p
-inner join tbCategoria c
-on p.idCategoria = c.idCategoria; 
-
-https://pt.stackoverflow.com/questions/138199/consultar-dados-em-duas-tabelas-e-somar-uma-das-colunas
+select sum (qtdVendida) from tbItemVendido where id in(1,2,3,4,5);
