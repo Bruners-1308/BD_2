@@ -2,7 +2,7 @@ create database bdVenda;
 use bdVenda;
 
 create table tbPereciveis(
-id int primary key auto_increment
+idPereciveis int primary key auto_increment
 ,Produto varchar(40)
 ,valor decimal(5,2)
 ,qtd int
@@ -12,7 +12,7 @@ id int primary key auto_increment
 
  
 create table tbItemVendido(
-id int primary key auto_increment
+idItemVendido int primary key auto_increment
 ,ProdutoVendido varchar (50)
 ,ValorVendido decimal (5,2)
 ,qtdVendida int
@@ -30,13 +30,20 @@ insert into tbItemVendido values(null,'Macarrão','1.50',30);
 insert into tbItemVendido values(null,'Açucar','1.00',40);
 insert into tbItemVendido values(null,'Sal','3.00',15);
 
+-- retona a qtd vendas
+select * from tbItemVendido; 
+SELECT tbPereciveis.Produto, tbItemVendido.qtdVendida 
+FROM tbPereciveis inner join tbItemVendido  
+    on tbPereciveis.idPereciveis = tbItemVendido.idItemVendido;  
 
-select * from tbItemVendido; -- retona a qtd vendas
-SELECT ProdutoVendido,(qtdVendida*ValorVendido) FROM tbItemVendido where id in(1,2,3,4,5); -- soma total de prd vendido
-select ProdutoVendido,min(qtdVendida) from tbItemVendido; -- minimo vendido
+-- soma total de prd vendido
+SELECT ProdutoVendido,(qtdVendida*ValorVendido) FROM tbItemVendido where id in(1,2,3,4,5);
 
-select tbItemvendido.qtdVendida, tbPereciveis.qtd from tbItemvendido
-inner join tbPereciveis
-on tbItemvendido.qtdVendida = tbPereciveis.qtd; 
+ -- minimo vendido
+select ProdutoVendido,min(qtdVendida) from tbItemVendido; 
 
-select sum (qtdVendida) from tbItemVendido where id in(1,2,3,4,5);
+-- media vendida
+
+SELECT tbPereciveis.Produto, tbItemVendido.qtdVendida, tbPereciveis.valor, sum(((tbItemVendido.qtdVendida*tbPereciveis.valor) / tbItemVendido.qtdVendida) * 100)  
+FROM tbPereciveis inner join tbItemVendido  
+    on tbPereciveis.idPereciveis = tbItemVendido.idItemVendido group by tbItemVendido.idPereciveis;  
