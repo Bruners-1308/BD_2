@@ -1,0 +1,82 @@
+create database dbMusica;
+
+use dbMusica;
+
+create table tbLogin(
+	idLogin int primary key auto_increment
+    ,dtCadastro date
+    ,usuario varchar(40)
+    ,senha varchar(10)
+);
+
+insert into tbLogin values(null,'2019-04-17','Ana','123456');
+insert into tbLogin values(null,'2019-04-02','Maria','654321');
+insert into tbLogin values(null,'2019-04-04','João','456789');
+
+
+create table tbX(
+	 idX int primary key auto_increment
+    ,dt date
+    ,titulo varchar(100)
+    ,resumo varchar(200)
+    ,conteudo varchar(2000)    
+);
+
+insert into tbX values (null,'209-04-24','metallica no Brasil','resumo metallica','conteudo metallica');
+insert into tbX values (null,'209-04-24','iron maiden no Brasil','resumo iron maiden','conteudo iron');
+insert into tbX values (null,'209-04-24','ac dc voltou','resumo acdc','conteudo ac dc');
+
+select * from tbX;
+
+truncate table tbX;
+
+
+create table tbCategoria(
+	idCat int primary key auto_increment
+    ,categoria varchar(40)
+);
+
+create table tbProduto(
+	idPro int primary key auto_increment
+    ,produto varchar(40)    
+    ,idCat int
+    ,valor float
+    ,foreign key (idCat) references tbCategoria (idCat)    
+);
+
+
+insert into tbProduto values (null,'Computador',1,2000);
+insert into tbProduto values (null,'creme',2,20);
+insert into tbProduto values (null,'pen-drive',1,50);
+insert into tbProduto values (null,'teclado',1,100);
+insert into tbProduto values (null,'danone',3,17);
+insert into tbProduto values (null,'perfume',2,400);
+insert into tbProduto values (null,'arroz',3,15);
+insert into tbProduto values (null,'caixa de som',1,60);
+insert into tbProduto values (null,'maquiagem',2,100);
+
+select * from tbProduto;
+
+select idCat,count(*) from tbProduto group by idCat;
+select idCat,sum(valor) from tbProduto group by idCat;
+
+select idCat,sum(valor) from tbProduto group by idCat
+having sum(valor)>500;
+
+SELECT CONVERT("2019-06-06", DATE);
+
+insert into tbCategoria values (null,'Eletrônico');
+insert into tbCategoria values (null,'Cosmético');
+insert into tbCategoria values (null,'Alimento');
+
+select * from tbCategoria;
+
+
+SELECT ISNULL(null);
+SELECT ISNULL('Teste');
+
+
+
+
+
+
